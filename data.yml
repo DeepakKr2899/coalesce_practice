@@ -7,11 +7,21 @@ locations:
       "7":
         database: PROD_TRANSFORM
         schema: PUBLIC
+  PERSISTENT_STAGING_PAYCOM:
+    mappingDefinitions:
+      "7":
+        database: PROD_PERSISTENT_STAGING
+        schema: PAYCOM
   SOURCES_PUBLIC:
     mappingDefinitions:
       "7":
         database: PROD_SOURCES
         schema: PUBLIC
+  SOURCES_SFTP:
+    mappingDefinitions:
+      "7":
+        database: PROD_SOURCES
+        schema: SFTP
 macros: {}
 packages: {}
 projects: {}
