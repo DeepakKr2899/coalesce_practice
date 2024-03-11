@@ -1,0 +1,37 @@
+name: "CUSTOM COALESCE API REFRESH"
+
+on:
+  schedule:
+  - cron: "30 07 * * *"
+  
+  workflow_dispatch:
+  
+env:
+  TZ: "America/Los_Angeles" # Set the timezone to Pacific Time
+  
+jobs:
+  run-updater:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps: 
+    - name: REST API with curl
+      run: |
+        curl --request POST \
+           --url https://app.coalescesoftware.io/scheduler/startRun \
+           --header 'Authorization: Bearer AMf-vBwtq_HISM5lWO0ZrsjpZJUP8ZZyi6_ZvlW0TSJ1fP_B9G4gxJYedW1Dqn-BXWemry4R7U3Dz3898XP49_LhIW8Qky1FOx2w9N9klXHvKNxFO9VzXUPmuKR1GMCHg9rZEd2JisZjOUxJp0mDWbwha8EEqw6B9sPq_QxOxNKVGne7WOBMGsbZkKlkTTupvPmTcxmOZGaR6i3NE2-Y0TF0Y6ua_d_j6Q' \
+           --header 'accept: application/json' \
+           --header 'content-type: application/json' \
+           --data '
+            {
+              "runDetails": {
+                "parallelism": 16,
+                "environmentID": "7"
+              },
+              "userCredentials": {
+                "snowflakeAuthType": "Basic",
+                "snowflakeUsername": "DEEPAK2899",
+                "snowflakePassword": "DaDa2802#",
+                "snowflakeWarehouse": "COMPUTE_WH",
+                "snowflakeRole": "ACCOUNTADMIN"
+              }
+            }'
