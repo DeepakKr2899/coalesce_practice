@@ -1,0 +1,19 @@
+on:
+  schedule:
+    - cron: '5 16,17 * * *'
+
+jobs:
+  check-run:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check_local_time.outputs.run }}
+    steps:
+      - name: Check local time
+        id: check_local_time
+        env: 
+          TRIGGER: ${{ github.event_name }}
+        run: |
+            today=$(date --date='TZ="America/Los_Angeles" now' +%H)
+            echo $today
+              
+  
