@@ -5,23 +5,23 @@ locations:
   DESTINATION_PUBLIC:
     mappingDefinitions:
       "7":
-        database: PROD_TRANSFORM
+        database: PROD_PERSISTENT_STAGING
         schema: PUBLIC
-  PERSISTENT_STAGING_PAYCOM:
+  PERSISTENT_STAGING_ECOMMERCE:
     mappingDefinitions:
       "7":
         database: PROD_PERSISTENT_STAGING
-        schema: PAYCOM
+        schema: ECOMMERCE
+  SOURCES_ECOMMERCE:
+    mappingDefinitions:
+      "7":
+        database: PROD_SOURCES
+        schema: ECOMMERCE
   SOURCES_PUBLIC:
     mappingDefinitions:
       "7":
         database: PROD_SOURCES
         schema: PUBLIC
-  SOURCES_SFTP:
-    mappingDefinitions:
-      "7":
-        database: PROD_SOURCES
-        schema: SFTP
 macros: {}
 packages: {}
 projects: {}
